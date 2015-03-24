@@ -6,7 +6,7 @@ pde_shift = 22
 pte_mask = 0x003ff000
 pte_shift = 12
 page_mask = 0xfffff000
-page_shift = 8
+page_shift = 12
 
 def read_testdata(filename='test.txt'):
     f = open(filename, 'r')
