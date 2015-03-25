@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # coding: utf-8
 
 __author__ = 'Pei Zhongyu'
@@ -23,7 +23,7 @@ disk_lines = range(135, 263)
 def read_byte(memaddr):
     return memory[(memaddr & page_mask) >> 5][memaddr & offset_mask]
 
-def dump_memory(filename='04-1-spoc-memdiskdata.md', lines):
+def dump_memory(filename='04-1-spoc-memdiskdata.md', lines=mem_lines):
     data = open(filename, 'r').readlines()
     for i in lines:
         l = data[i][8:].strip().split(' ')
@@ -64,5 +64,5 @@ if __name__ == '__main__':
     dump_memory()
     test_vas = [0x7570, 0x21e1, 0x7268, 0x106f]
     vas = [0x6653, 0x1c13, 0x6890, 0x0af6, 0x1e6f]
-    for va in vas:
+    for va in test_vas:
         mmu(va)
