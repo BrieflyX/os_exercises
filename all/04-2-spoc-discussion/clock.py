@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import copy
-
 class Page():
     
     def __init__(self, index):
@@ -38,35 +36,29 @@ def test_clock(memory_size=8, access_list=[]):
             # page not in memory
             print 'page fault: head=%d' % head
             miss += 1
-            victim = False
-            copy_page = copy.deepcopy(in_page)
-            for i in range(len(pattern)):
-                victim = False
-                for j in range(memory_size):
-                    p = (copy_page[head].ref, copy_page[head].mod)
-                    if p == pattern[i]:
-                        victim = True
-                        break
-                    else:
-                        # give it a second chance
-                        p = (in_page[head].ref, in_page[head].mod)
-                        p = change_pattern[p]
-                        in_page[head].ref = p[0]
-                        in_page[head].mod = p[1]
-                    head = (head + 1) % memory_size
-                if victim:
-                    # swap the victim
-                    idx = in_page[head].idx
-                    memory.pop(idx)
-                    print 'victim is %d' % idx
-                    memory[access[0]] = head
-                    if access[1] == 'r':
-                        in_page[head].ref = 1
-                        in_page[head].mod = 0
-                    else:
-                        in_page[head].ref = 0
-                        in_page[head].mod = 1
+            while True:
+                p = (in_page[head].ref, in_page[head].mod)
+                if p == (0,0):
                     break
+                else:
+                    # give it a second chance
+                    p = (in_page[head].ref, in_page[head].mod)
+                    p = change_pattern[p]
+                    in_page[head].ref = p[0]
+                    in_page[head].mod = p[1]
+                head = (head + 1) % memory_size
+
+            # swap the victim
+            idx = in_page[head].idx
+            memory.pop(idx)
+            print 'victim is %d' % idx
+            memory[access[0]] = head
+            if access[1] == 'r':
+                in_page[head].ref = 1
+                in_page[head].mod = 0
+            else:
+                in_page[head].ref = 0
+                in_page[head].mod = 1
     return miss
 
 if __name__ == '__main__':
