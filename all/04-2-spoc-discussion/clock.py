@@ -16,7 +16,7 @@ def test_clock(memory_size=8, access_list=[]):
     head = 0
     pattern = [(0,0), (0,1), (1,0), (1,1)]
     # modify pattern
-    change_pattern = {(0,0) : (0,0), (0,1) : (0,0), (1,0) : (0,0), (1,1) : (1,0)}
+    change_pattern = {(0,0) : (0,0), (0,1) : (0,0), (1,0) : (0,0), (1,1) : (0,1)}
     miss = 0
 
     for i in range(memory_size):
