@@ -31,6 +31,7 @@ def test_clock(memory_size=8, access_list=[]):
             if access[1] == 'r':
                 in_page[memory[access[0]]].ref = 1
             else:
+                in_page[memory[access[0]]].ref = 1
                 in_page[memory[access[0]]].mod = 1
         else:
             # page not in memory
@@ -57,7 +58,7 @@ def test_clock(memory_size=8, access_list=[]):
                 in_page[head].ref = 1
                 in_page[head].mod = 0
             else:
-                in_page[head].ref = 0
+                in_page[head].ref = 1
                 in_page[head].mod = 1
     return miss
 
