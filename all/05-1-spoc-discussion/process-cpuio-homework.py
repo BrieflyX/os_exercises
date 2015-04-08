@@ -207,6 +207,7 @@ class scheduler:
                 #pop a instruction from proc_info[self.curr_proc][PROC_CODE]to instruction_to_execute
                 #YOUR CODE
                 instruction_to_execute = self.proc_info[self.curr_proc][PROC_CODE].pop(0)
+                cpu_busy += 1
                 self.proc_info[self.curr_proc][PROC_PC] += 1
 
             # OUTPUT: print what everyone is up to
