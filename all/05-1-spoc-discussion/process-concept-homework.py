@@ -65,7 +65,7 @@ class scheduler:
     #change to RUNNING STATE, the current proc's state should be expected
     def move_to_running(self, expected):
         #YOUR CODE
-        assert expected == STATE_READY
+        assert expected == STATE_READY or expected == STATE_RUNNING
         self.proc_info[self.curr_proc][PROC_STATE] = STATE_RUNNING
         return
 
@@ -159,6 +159,8 @@ class scheduler:
                 self.proc_info[self.curr_proc][PROC_PC] += 1
 
             # OUTPUT: print what everyone is up to
+            if instruction_to_execute == '':
+                break
             print '%3d ' % clock_tick,
             for pid in range(len(self.proc_info)):
                 if pid == self.curr_proc and instruction_to_execute != '':
@@ -177,6 +179,11 @@ class scheduler:
 
             # ENDCASE: check if currently running thing is out of instructions
             self.check_if_done()
+
+        print '%3d ' % (clock_tick),
+        for pid in range(len(self.proc_info)):
+            print '%10s' % (self.proc_info[pid][PROC_STATE]),
+        print 
         return (clock_tick)
         
 #
