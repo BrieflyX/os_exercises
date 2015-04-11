@@ -9,7 +9,7 @@ class Page():
         self.idx = index
 
 
-def test_clock(memory_size=8, access_list=[]):
+def test_ex_clock(memory_size=8, access_list=[]):
 
     in_page = []
     memory = {}
@@ -65,5 +65,5 @@ def test_clock(memory_size=8, access_list=[]):
 if __name__ == '__main__':
     memory_size = 8
     access_list = [(0,'r'), (1,'r'), (3, 'w'), (10, 'w'), (2, 'r'), (5, 'w'), (9, 'r'), (0, 'w'), (11, 'r')]
-    miss = test_clock(memory_size, access_list)
+    miss = test_ex_clock(memory_size, access_list)
     print 'miss=%d' % miss
