@@ -54,6 +54,8 @@ tf和context中的esp
 
 > 注意 state、pid、cr3，context，trapframe的含义
 
+为进程分配proc_struct结构，填写上述的state进程状态，pid进程号，cr3页表寄存器，context进程上下文，tf中断帧。然后在do_fork中分配pid，最后对其进行调度。
+
 ### 练习2：分析并描述新创建的内核线程是如何分配资源的
 
 > 注意 理解对kstack, trapframe, context等的初始化
