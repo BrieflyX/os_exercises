@@ -13,7 +13,7 @@ def test_pff(access_list, T=2):
         if item in memory:
             print 'hit!',
         else:
-            print 'miss. ',
+            print 'miss.',
             if i - last_miss <= T or last_miss == -1:
                 print 'add to memory.',
             else:
