@@ -176,9 +176,15 @@ Final statistics:
 
 ```
 
+[Python code](https://github.com/BrieflyX/ucore_lab/blob/master/related_info/lab6/scheduler-homework.py) 
+
 (２)扩展练习1:理解并实现MLFQ调度算法　可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
+[C++ Code](https://github.com/badpoem/MLFQ)
+
 (3)扩展练习2:理解并实现stride调度算法　可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+[Python Code](https://github.com/BrieflyX/ucore_lab/blob/master/related_info/lab6/scheduler-homework.py)
 
 (4)扩展练习３：理解并实现EDF, RM实时调度算法和优先级反置方法　可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
