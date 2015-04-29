@@ -73,3 +73,19 @@ int FetchAndAdd(int *ptr) {
   return old;
 }
 ```
+
+> flag.s
+
+试图通过flag实现锁机制，但因为flag的赋值操作并不是原子操作，如果两个线程同时设置flag将会导致同时进入临界区或者无限等待。
+
+> peterson.s
+
+算法正确，利用flag和turn同时进行判断，如果turn被同时赋值，则最终只会保留一个值。线程仍能正确运行。
+
+> test-and-set.s
+
+错误，在进入临界区前不能对mutex进行设置，否则会造成混乱。
+
+> test-and-test-and-set.s
+
+正确，当mutex为0时才可以进入临界区，因为xchg为原子操作，不会同时有多个线程在进入临界区时对mutex赋值。
