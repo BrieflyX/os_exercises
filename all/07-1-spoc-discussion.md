@@ -89,3 +89,7 @@ int FetchAndAdd(int *ptr) {
 > test-and-test-and-set.s
 
 正确，当mutex为0时才可以进入临界区，因为xchg为原子操作，不会同时有多个线程在进入临界区时对mutex赋值。
+
+- CompareAndSwap()以及FetchAndAdd原子操作实现见gitlab上对应位置的代码
+
+- [GitLab地址](http://south.cs.tsinghua.edu.cn/BrieflyX/ucore_lab/blob/master/related_info/lab7/software-hardware-locks/x86.py)
