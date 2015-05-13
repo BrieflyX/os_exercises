@@ -59,6 +59,20 @@
 ## 小组思考题
  1. (spoc)完成Simple File System的功能，支持应用程序的一般文件操作。具体帮助和要求信息请看[sfs-homework](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/sfs-homework.md)
 
+第1问的分析如下
+
+- ①在根目录下创建新目录g
+- ②在根目录下创建新文件q
+- ③在根目录下创建新文件u
+- ④在根目录下为文件u创建硬链接x
+- ⑤在根目录下创建新目录t
+- ⑥在目录g下创建新文件c
+- ⑦在根目录下删除硬链接x
+- ⑧在目录g下创建新目录w
+- ⑨对文件c写入o
+- 10在根目录下创建新文件n
+
+第2问代码位置[sfs-homework](http://south.cs.tsinghua.edu.cn/BrieflyX/ucore_lab/blob/master/related_info/lab8/sfs-homework.py)
 
  1. (spoc)FAT、UFS、YAFFS、NTFS这几种文件系统中选一种，分析它的文件卷结构、目录结构、文件分配方式，以及它的变种。
   wikipedia上的文件系统列表参考
